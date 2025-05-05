@@ -1,9 +1,24 @@
 {
-  "moduleFileExtensions": ["js", "json", "ts"],
-  "rootDir": ".",
+  "preset": "ts-jest",
   "testEnvironment": "node",
-  "testRegex": ".e2e-spec.ts$",
+  "moduleFileExtensions": ["js", "json", "ts"],
+  "rootDir": "./",
+  "testRegex": ".*\\.e2e-spec\\.ts$",
   "transform": {
-    "^.+\\.(t|j)s$": "ts-jest"
+    "^.+\\.(t|j)s$": [
+      "ts-jest",
+      {
+        "tsconfig": "tsconfig.json"
+      }
+    ]
+  },
+  "moduleNameMapper": {
+    "/^@nestjs\/(.*)$/": "/Users/dimabielov/Documents/MyGit/NestTest/event-manager/test/node_modules/@nestjs/$1",
+    "/^src\/(.*)$/": "<rootDir>/src/$1"
+  },
+  "globals": {
+    "ts-jest": {
+      "isolatedModules": true
+    }
   }
 }
